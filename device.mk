@@ -17,6 +17,7 @@
 # rild
 PRODUCT_PACKAGES += \
     rild \
+    TeleService \
     BasicSmsReceiver \
     libstlport
 
