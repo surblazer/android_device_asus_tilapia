@@ -18,6 +18,9 @@ ro.sys.fw.trim_empty_percent=70
 ro.sys.fw.trim_cache_percent=70
 ro.config.max_starting_bg=8
 
+media.stagefright.legacyencoder=1
+media.stagefright.less-secure=1
+
 # don't preload OpenGL in Zygote, the Tegra drivers do not like it
 ro.zygote.disable_gl_preload=true
 
@@ -26,30 +29,15 @@ persist.tegra.didim.video = 5
 persist.tegra.didim.enable = 1
 persist.tegra.didim.normal = 3
 
-
-lpa.use-stagefright=false
-
-
-#permit dex2oat to run more than 6 minutes. comment if you prefer to keep the watchdog
-dalvik.vm.dex2oat-flags=--no-watch-dog
-
-dalvik.vm.dexopt-flags=m=y
-dalvik.vm.dex2oat-filter=everything
-dalvik.vm.image-dex2oat-filter=everything
-dalvik.vm.heapstartsize=8m
+# Dalvik and other tweaks
 dalvik.vm.heapgrowthlimit=128m
-dalvik.vm.heapsize=174m
-dalvik.vm.heaputilization=0.25
-dalvik.vm.heapidealfree=8388608
-dalvik.vm.heapconcurrentstart=2097152
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
-
+dalvik.vm.heapsize=256m
 dalvik.vm.verify-bytecode=false
-dalvik.vm.checkjni=false
 persist.adb.notify=0
 ro.kernel.android.checkjni=0
 ro.kernel.checkjni=0
-#ro.ril.disable.power.collapse=0
+dalvik.vm.checkjni=false
+ro.ril.disable.power.collapse=0
 pm.sleep_mode=1
 ro.config.hw_power_saving=true
 persist.debug.wfd.enable=1
@@ -66,7 +54,7 @@ persist.sys.use_16bpp_alpha=1
 #ro.config.low_ram=true
 
 #disable scrolling cache (1 = on, 2 = sometimes on, 3 = sometimes off, 4 = allways off)
-persist.sys.scrollingcache=4
+persist.sys.scrollingcache=1
 
 #debug flags
 ro.adb.secure=0
@@ -74,14 +62,6 @@ ro.debuggable=1
 persist.service.adb.enable=1
 persist.sys.usb.config=mtp,adb
 
-# zram, zswap, vnswap, swap and memory
-persist.sys.zram_size=167772160
-persist.sys.zram_enable=true
-persist.sys.zswap_size=22
-persist.sys.zswap_zmin=70
-persist.sys.vnswap_enable=false
-persist.sys.vnswap_size=5242880
-persist.sys.ram_minfree=138240
-
 ro.opa.eligible_device=true
+#ro.sys.sdcardfs=true
 
