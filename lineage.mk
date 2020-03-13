@@ -14,12 +14,26 @@
 # limitations under the License.
 #
 
+# Release name
+PRODUCT_RELEASE_NAME := Nexus7-GSM
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 800
+
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
+
+# Inherit telephony common stuff
+$(call inherit-product, vendor/cm/config/telephony.mk)
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/asus/tilapia/device.mk)
+
 # This is where we'd set a backup provider if we had one
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
-PRODUCT_NAME   := aosp_tilapia
+PRODUCT_NAME   := lineage_tilapia
 PRODUCT_DEVICE := tilapia
 PRODUCT_BRAND  := Google
 PRODUCT_MODEL  := Nexus 7 3G
