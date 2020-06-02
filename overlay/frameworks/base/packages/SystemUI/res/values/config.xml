@@ -26,7 +26,7 @@
     <string name="velocity_tracker_impl" translatable="false">noisy</string>
 
     <!-- Show camera affordance on Keyguard -->
-    <bool name="config_keyguardShowCameraAffordance">false</bool>
+    <bool name="config_keyguardShowCameraAffordance">true</bool>
 
     <!-- Use hardware layers in recents -->
     <bool name="config_recents_use_hardware_layers">true</bool>
@@ -40,7 +40,7 @@
     <!-- Doze: shake accelerometer threshold -->
     <integer name="doze_shake_accelerometer_threshold">10</integer>
 
-    <!-- Doze: when to pulse after a buzzworthy notification arrives -->
+     <!-- Doze: when to pulse after a buzzworthy notification arrives -->
     <string name="doze_pulse_schedule" translatable="false">1s,5s,10s,30s,60s</string>
 
     <!-- Doze: pulse parameter - how long does it take to fade in after an intent? -->
