@@ -31,17 +31,11 @@
 USE_CAMERA_STUB := true
 USE_PROPRIETARY_AUDIO_EXTENSIONS := false
 
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_tilapia
-TARGET_RECOVERY_UPDATER_EXTRA_LIBS := libIMCdownload libPrgHandler
-
-TARGET_RELEASETOOLS_EXTENSIONS := device/asus/tilapia
-
 -include vendor/asus/tilapia/BoardConfigVendor.mk
 include device/asus/grouper/BoardConfigCommon.mk
 
 TARGET_RECOVERY_FSTAB = device/asus/tilapia/fstab.grouper
 
-#BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 1
 TARGET_DISABLE_ARM_PIE := true
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=hardfp -gtoggle -s -DNDEBUG -march=armv7-a -mthumb -O2 -funroll-loops -mimplicit-it=always -mno-warn-deprecated -mauto-it --disable-docs -mtls-dialect=gnu2 --param l1-cache-size=32 --param l1-cache-line-size=32 --param l2-cache-size=1024 --param simultaneous-prefetches=6 --param prefetch-latency=400 -mvectorize-with-neon-quad
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=hardfp -gtoggle -s -DNDEBUG -O2 -funroll-loops -mthumb -march=armv7-a -mimplicit-it=always -mno-warn-deprecated -mauto-it --disable-docs -mtls-dialect=gnu2 --param l1-cache-size=32 --param l1-cache-line-size=32 --param l2-cache-size=1024 --param simultaneous-prefetches=6 --param prefetch-latency=400 -mvectorize-with-neon-quad
@@ -53,14 +47,13 @@ TARGET_ENABLE_NON_PIE_SUPPORT := true
 WITH_DEXPREOPT := false
 # commented due to clang unknown flag -mapcs
 # HWUI_COMPILE_FOR_PERF := true
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
+
 $(call add-product-dex-preopt-module-config,services,--compiler-filter=everything)
 PRODUCT_PROPERTY_OVERRIDES += \
 dalvik.vm.dex2oat-flags=--no-watch-dog \
 dalvik.vm.dex2oat-filter=everything \
-dalvik.vm.image-dex2oat-filter=everything \
-dalvik.vm.check-dex-sum=false \
-dalvik.vm.checkjni=false \
-dalvik.vm.usejit=true \
-dalvik.vm.heaptargetutilization=0.9 \
-dalvik.vm.dexopt-flags=v=a,o=v
+dalvik.vm.image-dex2oat-filter=everything
+PRODUCT_PROPERTY_OVERRIDES += \
+     pm.dexopt.shared=quicken
 
